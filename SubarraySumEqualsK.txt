@@ -1,0 +1,16 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> preCount = new HashMap<>();
+        preCount.put(0, 1); 
+        
+        int s = 0, c = 0;
+        for (int num : nums) {
+            s += num;
+            if (preCount.containsKey(s - k)) {
+                c += preCount.get(s - k);
+            }
+            preCount.put(s, preCount.getOrDefault(s, 0) + 1);
+        }
+        return c;
+    }
+}
