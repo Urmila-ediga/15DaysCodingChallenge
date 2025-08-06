@@ -1,0 +1,26 @@
+class Solution {
+    public int trap(int[] h) {
+        int l=0;
+        int r=h.length-1;
+        int lm=h[l],rm=h[r];
+        int w=0;
+        while(l<r)
+        {
+            if(lm<rm)
+            {
+                l+=1;
+                lm=Math.max(h[l],lm);
+                w+=lm-h[l];
+            }
+            else
+            {
+                r-=1;
+                rm=Math.max(h[r],rm);
+                w+=rm-h[r];
+            }
+        }
+
+return w;
+        
+    }
+}
