@@ -1,0 +1,11 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        dp=[-1]*(n+1)
+        def st(i):
+            if i==0 or i==1:
+                return 1
+            if dp[i]==-1:
+                dp[i]=st(i-1)+st(i-2)
+            return dp[i]
+        return st(n)
+        
