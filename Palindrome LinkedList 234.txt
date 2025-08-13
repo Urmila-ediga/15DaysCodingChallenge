@@ -1,0 +1,21 @@
+class Solution:
+    def isPalindrome(self,h:Optional[ListNode])->bool:
+        if not h or not h.next:
+            return True
+        s,f=h,h
+        while f and f.next:
+            s=s.next
+            f=f.next.next
+        p=None
+        while s:
+            n=s.next
+            s.next=p
+            p=s
+            s=n
+        l,r=h,p
+        while r:
+            if l.val!=r.val:
+                return False
+            l=l.next
+            r=r.next
+        return True
